@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Servicios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<style>
+    body {
+            background-image: url('img/FotoPanteon10.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0); /* Fondo blanco semi-transparente para la tarjeta */
+        }
+
+    
+    /* Resto de tu código CSS */
+</style>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h3 class="text-center">Registro de Servicios</h3>
+        </div>
+        <div class="card-body">
+            <form action="#" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <!-- Columna 1 -->
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="id_padron">Id Padrón:</label>
+                            <input type="text" class="form-control" id="id_padron" name="id_padron" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="boleta">Boleta:</label>
+                            <input type="text" class="form-control" id="boleta" name="boleta" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="tipo_servicio">Tipo del Servicio:</label>
+                            <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="costo">Costo:</label>
+                            <input type="text" class="form-control" id="costo" name="costo" required>
+                        </div>
+
+                        
+                    </div>
+
+                    <!-- Columna 2 -->
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="mes">Mes:</label>
+                            <input type="text" class="form-control" id="mes" name="mes" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="fecha">Fecha:</label>
+                            <input type="date" class="form-control" id="fecha" name="fecha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="panteon">Panteón:</label>
+                            <select class="form-control" id="panteon" name="panteon">
+                                <option value="Jardines">Jardines</option>
+                                <option value="Municipal">Municipal</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="calle">Calle:</label>
+                            <input type="text" class="form-control" id="calle" name="calle" required>
+                        </div>
+                    </div>
+
+                    <!-- Columna 3 -->
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="letra">Letra:</label>
+                            <input type="text" class="form-control" id="letra" name="letra" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="lote">Lote:</label>
+                            <input type="text" class="form-control" id="lote" name="lote" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="titular_servicio">Titular del Servicio:</label>
+                            <input type="text" class="form-control" id="titular_servicio" name="titular_servicio" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: rgb(231, 223, 223);" for="datos_complementarios">Datos Complementarios:</label>
+                            <textarea class="form-control" id="datos_complementarios" name="datos_complementarios" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-danger">Agregar</button>
+                    <button type="submit" class="btn btn-danger">Modificar</button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a href="Servicios.html" class="btn btn-danger"> Regresar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
