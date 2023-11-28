@@ -1,3 +1,5 @@
+<?php require '../../app/model/db.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +58,7 @@
 
 
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Padron Municipal</span></a>
             </li>
@@ -68,7 +70,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="PanteonJardin.html">
+                <a class="nav-link" href="PanteonJardin.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Jardin de los Recuerdos</span></a>
             </li>
@@ -169,7 +171,7 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Datos Guardados</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Datos Guardados | Difuntos</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -178,19 +180,31 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre</th>
-                                            <th>Primer Apellido</th>
-                                            <th>Segundo Apellido</th>
-                                            <th>Direccion</th>
+                                            <th>Sexo</th>
+                                            <th>Fecha</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Ubaldo</td>
-                                            <td>Covarrubias</td>
-                                            <td>Cruz</td>
-                                            <td>C. Guadalupe Victoria #132</td>
-                                        </tr>
+                                        <?php
+                                       
+                                        $sql = "SELECT * FROM difuntos";
+                                        $resultado = $conexion->query($sql);
+
+                                        if ($resultado->num_rows > 0) {
+                                            while ($fila = $resultado->fetch_assoc()) {
+                                                echo "<tr>";
+                                                echo "<td>" . $fila["id_difuntos"] . "</td>";
+                                                echo "<td>" . $fila["nombre"] . "</td>";
+                                                echo "<td>" . $fila["sexo"] . "</td>";
+                                                echo "<td>" . $fila["fecha"] . "</td>";
+                                                echo "</tr>";
+                                            }
+                                        } else {
+                                            echo "<tr><td colspan='4'>No hay difuntos registrados.</td></tr>";
+                                        }
+
+                                        $conexion->close();
+                                        ?>
                                     </tbody>
                                 </table>
 

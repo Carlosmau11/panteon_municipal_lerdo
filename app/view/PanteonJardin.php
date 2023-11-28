@@ -1,3 +1,5 @@
+<?php require '../../app/model/db.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +59,7 @@
             <!-- Nav Item - Tables -->
 
             <li class="nav-item ">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Padron Municipal</span></a>
             </li>
@@ -69,7 +71,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="PanteonJardin.html">
+                <a class="nav-link" href="PanteonJardin.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Jardin de los Recuerdos</span></a>
             </li>
@@ -182,15 +184,48 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Primer Apellido</th>
-                                            <th>Segundo Apellido</th>
-                                            <th>Direccion</th>
+                                            <th>ID Sepulcro Jardin</th>
+                                            <th>ID Propietario</th>
+                                            <th>ID Difunto</th>
+                                            <th>Tipo Pago</th>
+                                            <th>Calle</th>
+                                            <th>Etapa</th>
+                                            <th>Letra</th>
+                                            <th>Lote</th>
+                                            <th>Observacion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
 
+                                        // Consulta SQL para obtener datos de la tabla de difuntos
+                                        $sql = "SELECT * FROM sepulcro_panteon_jardin";
+                                        $resultado = $conexion->query($sql);
+
+                                        // Verificar si hay resultados
+                                        if ($resultado->num_rows > 0) {
+                                            // Iterar sobre los resultados y mostrar cada fila
+                                            while ($fila = $resultado->fetch_assoc()) {
+                                                echo "<tr>";
+                                                echo "<td>" . $fila["id_sepulcro_panteon_jardin"] . "</td>";
+                                                echo "<td>" . $fila["id_propietario"] . "</td>";
+                                                echo "<td>" . $fila["id_difunto"] . "</td>";
+                                                echo "<td>" . $fila["tipo_pago"] . "</td>";
+                                                echo "<td>" . $fila["tipo_pago"] . "</td>";
+                                                echo "<td>" . $fila["calle"] . "</td>";
+                                                echo "<td>" . $fila["letra"] . "</td>";
+                                                echo "<td>" . $fila["lote"] . "</td>";
+                                                echo "<td>" . $fila["observacion"] . "</td>";
+                                                echo "</tr>";
+                                            }
+                                        } else {
+                                            // Mensaje si no hay resultados
+                                            echo "<tr><td colspan='4'>No hay difuntos registrados.</td></tr>";
+                                        }
+
+                                        // Cerrar la conexión
+                                        $conexion->close();
+                                        ?>
                                     </tbody>
                                 </table>
 

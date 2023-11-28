@@ -18,7 +18,7 @@ if ($result->num_rows == 1) {
     // Las credenciales son válidas, inicia la sesión
     session_start();
     $_SESSION['doomy'] = $nombre_usuario;
-    header("Location: ../view/index.html");
+    header("Location: ../view/index.php");
     exit();
 } else {
     // Las credenciales son incorrectas, muestra un mensaje de error
