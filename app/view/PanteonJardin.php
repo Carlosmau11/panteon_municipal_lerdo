@@ -61,23 +61,23 @@
             <li class="nav-item ">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Padron Municipal</span></a>
+                    <span>Propietarios</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="Difuntos.html">
+                <a class="nav-link" href="Difuntos.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Panteon Municipal</span></a>
+                    <span>Sepulcro Panteon Municipal</span></a>
             </li>
 
             <li class="nav-item active">
                 <a class="nav-link" href="PanteonJardin.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Jardin de los Recuerdos</span></a>
+                    <span>Sepulcro Panteon Jardin</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="Servicios.html">
+                <a class="nav-link" href="Servicios.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Servicios</span></a>
             </li>
@@ -211,8 +211,8 @@
                                                 echo "<td>" . $fila["id_propietario"] . "</td>";
                                                 echo "<td>" . $fila["id_difunto"] . "</td>";
                                                 echo "<td>" . $fila["tipo_pago"] . "</td>";
-                                                echo "<td>" . $fila["tipo_pago"] . "</td>";
                                                 echo "<td>" . $fila["calle"] . "</td>";
+                                                echo "<td>" . $fila["etapa"] . "</td>";
                                                 echo "<td>" . $fila["letra"] . "</td>";
                                                 echo "<td>" . $fila["lote"] . "</td>";
                                                 echo "<td>" . $fila["observacion"] . "</td>";

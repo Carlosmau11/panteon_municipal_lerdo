@@ -1,3 +1,5 @@
+<?php require '../../app/model/db.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,25 +59,25 @@
             <!-- Nav Item - Tables -->
 
             <li class="nav-item ">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Padron Municipal</span></a>
+                    <span>Propietarios</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="Difuntos.html">
+                <a class="nav-link" href="Difuntos.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Panteon Municipal</span></a>
+                    <span>Sepulcro Panteon Municipal</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="PanteonJardin.html">
+                <a class="nav-link" href="PanteonJardin.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Jardin de los Recuerdos</span></a>
+                    <span>Sepulcro Panteon Jardin</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="Servicios.html">
+                <a class="nav-link" href="Servicios.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Servicios</span></a>
             </li>
@@ -180,14 +182,39 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Primer Apellido</th>
-                                            <th>Segundo Apellido</th>
-                                            <th>Direccion</th>
+                                            <th>Id Propietario</th>
+                                            <th>Id Difunto</th>
+                                            <th>Tipo Pago</th>
+                                            <th>Observacion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
 
+                                        // Consulta SQL para obtener datos de la tabla de difuntos
+                                        $sql = "SELECT * FROM sepulcro_panteon_municipal";
+                                        $resultado = $conexion->query($sql);
+
+                                        // Verificar si hay resultados
+                                        if ($resultado->num_rows > 0) {
+                                            // Iterar sobre los resultados y mostrar cada fila
+                                            while ($fila = $resultado->fetch_assoc()) {
+                                                echo "<tr>";
+                                                echo "<td>" . $fila["id_sepulcro_panteon_municipal"] . "</td>";
+                                                echo "<td>" . $fila["id_propietario"] . "</td>";
+                                                echo "<td>" . $fila["id_difunto"] . "</td>";
+                                                echo "<td>" . $fila["tipo_pago"] . "</td>";
+                                                echo "<td>" . $fila["observacion"] . "</td>";
+                                                echo "</tr>";
+                                            }
+                                        } else {
+                                            // Mensaje si no hay resultados
+                                            echo "<tr><td colspan='4'>No hay difuntos registrados.</td></tr>";
+                                        }
+
+                                        // Cerrar la conexión
+                                        $conexion->close();
+                                        ?>
                                     </tbody>
                                 </table>
                                 <!-- Divider -->

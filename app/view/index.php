@@ -60,23 +60,23 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Padron Municipal</span></a>
+                    <span>Propietarios</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="Difuntos.html">
+                <a class="nav-link" href="Difuntos.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Panteon Municipal</span></a>
+                    <span>Sepulcro Panteon Municipal</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="PanteonJardin.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Jardin de los Recuerdos</span></a>
+                    <span>Sepulcro Panteon Jardin</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="Servicios.html">
+                <a class="nav-link" href="Servicios.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Servicios</span></a>
             </li>
@@ -165,13 +165,13 @@
 
 
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-2 text-gray-800">Datos Padron Municipal</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Datos Propietarios</h1>
                     </div>
 
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Datos Guardados | Difuntos</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Datos Guardados | Propietarios</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -181,22 +181,34 @@
                                             <th>ID</th>
                                             <th>Nombre</th>
                                             <th>Sexo</th>
-                                            <th>Fecha</th>
+                                            <th>Fecha Nacimiento</th>
+                                            <th>Edad</th>
+                                            <th>Curp</th>
+                                            <th>Celular</th>
+                                            <th>Foto</th>
+                                            <th>Correo</th>
+                                            <th>Comprobante Domicilio</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                        
-                                        $sql = "SELECT * FROM difuntos";
+                                        $sql = "SELECT * FROM propietario";
                                         $resultado = $conexion->query($sql);
 
                                         if ($resultado->num_rows > 0) {
                                             while ($fila = $resultado->fetch_assoc()) {
                                                 echo "<tr>";
-                                                echo "<td>" . $fila["id_difuntos"] . "</td>";
-                                                echo "<td>" . $fila["nombre"] . "</td>";
+                                                echo "<td>" . $fila["id_propietario"] . "</td>";
+                                                echo "<td>" . $fila["nombre_completo"] . "</td>";
                                                 echo "<td>" . $fila["sexo"] . "</td>";
-                                                echo "<td>" . $fila["fecha"] . "</td>";
+                                                echo "<td>" . $fila["fecha_nacimiento"] . "</td>";
+                                                echo "<td>" . $fila["edad"] . "</td>";
+                                                echo "<td>" . $fila["curp"] . "</td>";
+                                                echo "<td>" . $fila["celular"] . "</td>";
+                                                echo "<td>" . $fila["foto"] . "</td>";
+                                                echo "<td>" . $fila["correo"] . "</td>";
+                                                echo "<td>" . $fila["comprobante_domicilio"] . "</td>";
                                                 echo "</tr>";
                                             }
                                         } else {
