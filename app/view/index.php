@@ -227,7 +227,7 @@
                                             <td>
                                                 <button class="btn btn-danger"
                                                     style="text-decoration: none; color: white;">
-                                                    <a href="instalaciones_editar.php?id_propietario=<?php echo $row['id_propietario']?>"
+                                                    <a href="eliminar_propietario.php?id_propietario=<?php echo $row['id_propietario']?>"
                                                         style="color: white;">Eliminar</a>
                                                 </button>
 
