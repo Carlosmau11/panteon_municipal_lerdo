@@ -1,3 +1,4 @@
+<?php require '../../app/model/db.php' ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,18 +11,18 @@
 <body>
 
     <style>
-        body {
-            background-image: url('../../public/img/FotoPanteon10.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
+    body {
+        background-image: url('../../public/img/FotoPanteon10.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 
-        .card {
-            background-color: rgba(255, 255, 255, 0);
-            /* Fondo blanco semi-transparente para la tarjeta */
-        }
+    .card {
+        background-color: rgba(255, 255, 255, 0);
+        /* Fondo blanco semi-transparente para la tarjeta */
+    }
 
-        /* Resto de tu código CSS */
+    /* Resto de tu código CSS */
     </style>
 
     <div class="container mt-5">

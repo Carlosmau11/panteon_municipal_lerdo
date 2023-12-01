@@ -188,41 +188,69 @@
                                             <th>Foto</th>
                                             <th>Correo</th>
                                             <th>Comprobante Domicilio</th>
+                                            <th>Actualizar</th>
+                                            <th>Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                       
+
                                         $sql = "SELECT * FROM propietario";
-                                        $resultado = $conexion->query($sql);
-
-                                        if ($resultado->num_rows > 0) {
-                                            while ($fila = $resultado->fetch_assoc()) {
-                                                echo "<tr>";
-                                                echo "<td>" . $fila["id_propietario"] . "</td>";
-                                                echo "<td>" . $fila["nombre_completo"] . "</td>";
-                                                echo "<td>" . $fila["sexo"] . "</td>";
-                                                echo "<td>" . $fila["fecha_nacimiento"] . "</td>";
-                                                echo "<td>" . $fila["edad"] . "</td>";
-                                                echo "<td>" . $fila["curp"] . "</td>";
-                                                echo "<td>" . $fila["celular"] . "</td>";
-                                                echo "<td>" . $fila["foto"] . "</td>";
-                                                echo "<td>" . $fila["correo"] . "</td>";
-                                                echo "<td>" . $fila["comprobante_domicilio"] . "</td>";
-                                                echo "</tr>";
-                                            }
-                                        } else {
-                                            echo "<tr><td colspan='4'>No hay difuntos registrados.</td></tr>";
-                                        }
-
-                                        $conexion->close();
+                                        $propietario = mysqli_query($conexion, $sql);
+                                        if($propietario -> num_rows > 0){
+                                        foreach($propietario as $key => $row ){
                                         ?>
+                                        <!--funcion y estilos para celdas en error-->
+                                        <?php
+                                        ?>
+
+                                        <tr>
+                                            <td><?= $row["id_propietario"] ?></td>
+                                            <td><?php echo $row['nombre_completo']; ?></td>
+                                            <td><?php echo $row['sexo']; ?></td>
+                                            <td><?php echo $row['fecha_nacimiento']; ?></td>
+                                            <td><?php echo $row['edad']; ?></td>
+                                            <td><?php echo $row['curp']; ?></td>
+                                            <td><?php echo $row['celular']; ?></td>
+                                            <td><?php echo $row['foto']; ?></td>
+                                            <td><?php echo $row['correo']; ?></td>
+                                            <td><?php echo $row['comprobante_domicilio']; ?></td>
+                                            <td>
+                                                <button class="btn btn-info"
+                                                    style="text-decoration: none; color: white;">
+                                                    <a href="actualizar_propietario.php?id_propietario=<?php echo $row['id_propietario']?>"
+                                                        style="color: white;">Editar</a>
+                                                </button>
+
+                                                <a></a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger"
+                                                    style="text-decoration: none; color: white;">
+                                                    <a href="instalaciones_editar.php?id_propietario=<?php echo $row['id_propietario']?>"
+                                                        style="color: white;">Eliminar</a>
+                                                </button>
+
+                                                <a></a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                          }
+                                          }else{
+
+                                              ?>
+                                        <tr class="text-center">
+                                            <td colspan="4">No existe registros</td>
+                                        </tr>
+
+                                        <?php
+                                          }?>
                                     </tbody>
                                 </table>
 
                                 <hr class="sidebar-divider d-none d-md-block">
 
-                                <a href="formulario Padron.html"
+                                <a href="agregar_propietario.php"
                                     class="d-none d-sm-inline-block btn btn-lg btn-primary rounded-circle shadow-sm float-right">
                                     +</a>
                             </div>

@@ -1,3 +1,5 @@
+<?php require '../../app/model/db.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -180,14 +182,47 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Primer Apellido</th>
-                                            <th>Segundo Apellido</th>
-                                            <th>Direccion</th>
+                                            <th>Id Propietario</th>
+                                            <th>Id Panteon Municipal</th>
+                                            <th>Id Tipo Servicio</th>
+                                            <th>Boleta</th>
+                                            <th>Mes</th>
+                                            <th>Fecha</th>
+                                            <th>Panteon</th>
+                                            <th>Datos complementarios</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
 
+                                        // Consulta SQL para obtener datos de la tabla de difuntos
+                                        $sql = "SELECT * FROM servicios";
+                                        $resultado = $conexion->query($sql);
+
+                                        // Verificar si hay resultados
+                                        if ($resultado->num_rows > 0) {
+                                            // Iterar sobre los resultados y mostrar cada fila
+                                            while ($fila = $resultado->fetch_assoc()) {
+                                                echo "<tr>";
+                                                echo "<td>" . $fila["id_servicios"] . "</td>";
+                                                echo "<td>" . $fila["id_propietario"] . "</td>";
+                                                echo "<td>" . $fila["id_sepulcro_panteon_municipal"] . "</td>";
+                                                echo "<td>" . $fila["id_tipo_servicio"] . "</td>";
+                                                echo "<td>" . $fila["boleta"] . "</td>";
+                                                echo "<td>" . $fila["mes"] . "</td>";
+                                                echo "<td>" . $fila["fecha"] . "</td>";
+                                                echo "<td>" . $fila["fecha"] . "</td>";
+                                                echo "<td>" . $fila["datos_complementarios"] . "</td>";
+                                                echo "</tr>";
+                                            }
+                                        } else {
+                                            // Mensaje si no hay resultados
+                                            echo "<tr><td colspan='4'>No hay difuntos registrados.</td></tr>";
+                                        }
+
+                                        // Cerrar la conexión
+                                        $conexion->close();
+                                        ?>
                                     </tbody>
                                 </table>
 
