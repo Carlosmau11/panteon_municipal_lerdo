@@ -54,8 +54,7 @@ $propietario = mysqli_fetch_assoc($resultado);
                             <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="sexo">Sexo:</label>
                                 <select class="form-control" id="sexo" name="sexo" required>
-                                    <option value="<?php echo $propietario ['sexo']; ?>">Masculino</option>
-                                    <option value="<?php echo $propietario ['sexo']; ?>">Femenino</option>
+                                    <option value="<?php echo $propietario ['sexo']; ?>"></option>
                                 </select>
                             </div>
 

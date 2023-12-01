@@ -14,24 +14,26 @@ if(isset($_POST['accion'])){
             eliminar_propietario();
         break;
        
+        case 'agregar_propietario':
+            agregar_propietario();
+        break;
     }
 
 }
 
-// function insertar_accesorio(){
+function agregar_propietario(){
 
-//     global $conexion;
-//     extract($_POST);
+    global $conexion;
+    extract($_POST);
 
 
-//     $consulta="INSERT INTO TecnologiaAccesorios (tipo_conexion,nombre_dispositivo,descripcion)
-//     VALUES ('$tipo_conexion','$nombre_dispositivo', '$descripcion');" ;
+    $consulta="INSERT INTO propietario (nombre_completo,sexo,fecha_nacimiento,edad,curp,celular,foto,correo,comprobante_domicilio)
+    VALUES ('$nombre_completo','$sexo', '$fecha_nacimiento', '$edad', '$curp', '$celular', '$foto', '$correo', '$comprobante_domicilio');" ;
 
-//     mysqli_query($conexion, $consulta);
+    mysqli_query($conexion, $consulta);
     
-//     header("Location: ../views/usuarios/tecnologia_accesorios.php");
-
-// }
+    header("Location: ../view/index.php");
+}
 
 
 function editar_propietario(){

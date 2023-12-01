@@ -31,65 +31,14 @@
                 <h3 class="text-center">Registro en el Padrón Municipal</h3>
             </div>
             <div class="card-body">
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="../../app/model/functions_db.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <!-- Columna 1: Datos Personales Parte 1 -->
                         <div class="col-md-4">
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="nombre">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="apellido_paterno">Apellido
-                                    Paterno:</label>
-                                <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno"
-                                    required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="apellido_materno">Apellido
-                                    Materno:</label>
-                                <input type="text" class="form-control" id="apellido_materno" name="apellido_materno"
-                                    required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="curp">CURP:</label>
-                                <input type="text" class="form-control" id="curp" name="curp" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="rfc">RFC:</label>
-                                <input type="text" class="form-control" id="rfc" name="rfc" required>
-                            </div>
-                        </div>
-
-                        <!-- Columna 2: Datos Personales Parte 2 -->
-                        <div class="col-md-4">
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="clave_ine">Clave INE:</label>
-                                <input type="text" class="form-control" id="clave_ine" name="clave_ine" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="folio_acta">Folio de Acta:</label>
-                                <input type="text" class="form-control" id="folio_acta" name="folio_acta" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="fecha_nacimiento">Fecha de
-                                    nacimiento:</label>
-                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
-                                    required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="lugar_nacimiento">Lugar de
-                                    nacimiento:</label>
-                                <input type="text" class="form-control" id="lugar_nacimiento" name="lugar_nacimiento"
+                                <label style="color: rgb(231, 223, 223);" for="nombre_completo">Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombre_completo" name="nombre_completo"
                                     required>
                             </div>
 
@@ -101,54 +50,63 @@
                                 </select>
                             </div>
 
-                        </div>
-
-
-                        <!-- Columna 3: Datos de Contacto y Lugar de Entierro -->
-                        <div class="col-md-4">
-
-
+                            <div class="form-group">
+                                <label style="color: rgb(231, 223, 223);" for="fecha_nacimiento">Fecha de
+                                    nacimiento:</label>
+                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
+                                    required>
+                            </div>
 
                             <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="edad">Edad:</label>
-                                <input type="int" class="form-control" id="edad" name="edad" required>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="direccion">Dirección:</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" required>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="direccion">Codigo Postal:</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" required>
+                                <input type="text" class="form-control" id="edad" name="edad" required>
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="direccion">Telefono:</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" required>
+                                <label style="color: rgb(231, 223, 223);" for="curp">CURP:</label>
+                                <input type="text" class="form-control" id="curp" name="curp" required>
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="direccion">Correo:</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" required>
+                                <label style="color: rgb(231, 223, 223);" for="celular">Telefono Celular:</label>
+                                <input type="text" class="form-control" id="celular" name="celular" required>
+                            </div>
+                        </div>
+
+                        <!-- Columna 2: Datos Personales Parte 2 -->
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                <label style="color: rgb(231, 223, 223);" for="foto">Foto:</label>
+                                <input type="text" class="form-control" id="foto" name="foto" required>
                             </div>
 
+                            <div class="form-group">
+                                <label style="color: rgb(231, 223, 223);" for="correo">Correo Electronico:</label>
+                                <input type="text" class="form-control" id="correo" name="correo" required>
+                            </div>
 
+                            <div class="form-group">
+                                <label style="color: rgb(231, 223, 223);" for="lugar_nacimiento">Lugar de
+                                    nacimiento:</label>
+                                <input type="text" class="form-control" id="comprobante_domicilio"
+                                    name="comprobante_domicilio" required>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-danger">Agregar</button>
-                        <button type="submit" class="btn btn-danger">Modificar</button>
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                        <a href="index.html" class="btn btn-danger"> Regresar</a>
-                    </div>
-                </form>
             </div>
+
+            <div class="mb-3">
+                <input type="hidden" name="accion" value="agregar_propietario">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button class="btn btn-danger" style="text-decoration: none; color: white;">
+                    <a href="index.php" style="color: white;">Cancelar</a>
+                </button>
+
+            </div>
+            </form>
         </div>
+    </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
