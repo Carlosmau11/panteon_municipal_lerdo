@@ -54,7 +54,12 @@ $propietario = mysqli_fetch_assoc($resultado);
                             <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="sexo">Sexo:</label>
                                 <select class="form-control" id="sexo" name="sexo" required>
-                                    <option value="<?php echo $propietario ['sexo']; ?>"></option>
+                                    <option value="Masculino"
+                                        <?php if ($propietario['sexo'] == 'Masculino') echo 'selected'; ?>>Masculino
+                                    </option>
+                                    <option value="Femenino"
+                                        <?php if ($propietario['sexo'] == 'Femenino') echo 'selected'; ?>>Femenino
+                                    </option>
                                 </select>
                             </div>
 
