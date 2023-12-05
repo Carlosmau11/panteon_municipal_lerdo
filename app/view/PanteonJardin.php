@@ -193,39 +193,61 @@
                                             <th>Letra</th>
                                             <th>Lote</th>
                                             <th>Observacion</th>
+                                            <th>Actualizar</th>
+                                            <th>Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
 
-                                        // Consulta SQL para obtener datos de la tabla de difuntos
                                         $sql = "SELECT * FROM sepulcro_panteon_jardin";
-                                        $resultado = $conexion->query($sql);
-
-                                        // Verificar si hay resultados
-                                        if ($resultado->num_rows > 0) {
-                                            // Iterar sobre los resultados y mostrar cada fila
-                                            while ($fila = $resultado->fetch_assoc()) {
-                                                echo "<tr>";
-                                                echo "<td>" . $fila["id_sepulcro_panteon_jardin"] . "</td>";
-                                                echo "<td>" . $fila["id_propietario"] . "</td>";
-                                                echo "<td>" . $fila["id_difunto"] . "</td>";
-                                                echo "<td>" . $fila["tipo_pago"] . "</td>";
-                                                echo "<td>" . $fila["calle"] . "</td>";
-                                                echo "<td>" . $fila["etapa"] . "</td>";
-                                                echo "<td>" . $fila["letra"] . "</td>";
-                                                echo "<td>" . $fila["lote"] . "</td>";
-                                                echo "<td>" . $fila["observacion"] . "</td>";
-                                                echo "</tr>";
-                                            }
-                                        } else {
-                                            // Mensaje si no hay resultados
-                                            echo "<tr><td colspan='4'>No hay difuntos registrados.</td></tr>";
-                                        }
-
-                                        // Cerrar la conexión
-                                        $conexion->close();
+                                        $propietario = mysqli_query($conexion, $sql);
+                                        if($propietario -> num_rows > 0){
+                                        foreach($propietario as $key => $row ){
                                         ?>
+                                        <?php
+                                        ?>
+
+                                        <tr>
+                                            <td><?= $row["id_sepulcro_panteon_jardin"] ?></td>
+                                            <td><?php echo $row['id_propietario']; ?></td>
+                                            <td><?php echo $row['id_difunto']; ?></td>
+                                            <td><?php echo $row['tipo_pago']; ?></td>
+                                            <td><?php echo $row['calle']; ?></td>
+                                            <td><?php echo $row['etapa']; ?></td>
+                                            <td><?php echo $row['calle']; ?></td>
+                                            <td><?php echo $row['lote']; ?></td>
+                                            <td><?php echo $row['observacion']; ?></td>
+                                            <td>
+                                                <button class="btn btn-info"
+                                                    style="text-decoration: none; color: white;">
+                                                    <a href="actualizar_panteon_jardin.php?id_sepulcro_panteon_jardin=<?php echo $row['id_sepulcro_panteon_jardin']?>"
+                                                        style="color: white;">Editar</a>
+                                                </button>
+
+                                                <a></a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger"
+                                                    style="text-decoration: none; color: white;">
+                                                    <a href="eliminar_panteon_jardin.php?id_sepulcro_panteon_jardin=<?php echo $row['id_sepulcro_panteon_jardin']?>"
+                                                        style="color: white;">Eliminar</a>
+                                                </button>
+
+                                                <a></a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                        }
+                                        }else{
+
+                                            ?>
+                                        <tr class="text-center">
+                                            <td colspan="4">No existe registros</td>
+                                        </tr>
+
+                                        <?php
+                                         }?>
                                     </tbody>
                                 </table>
 

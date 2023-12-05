@@ -25,6 +25,22 @@ if(isset($_POST['accion'])){
         case 'eliminar_panteon_municipal':
             eliminar_panteon_municipal();
         break;
+
+        case 'editar_panteon_jardin':
+            editar_panteon_jardin();
+        break;
+
+        case 'eliminar_panteon_jardin':
+            eliminar_panteon_jardin();
+        break;
+
+        case 'editar_servicios':
+            editar_servicios();
+        break;
+
+        case 'eliminar_servicios':
+            eliminar_servicios();
+        break;
     }
 
 }
@@ -85,4 +101,46 @@ function eliminar_panteon_municipal(){
     $consulta = "DELETE FROM `propietario` WHERE `id_sepulcro_panteon_municipal` = $id_sepulcro_panteon_municipal";
     mysqli_query($conexion, $consulta);
     header("Location: ../view/difuntos.php");
+}
+
+function editar_panteon_jardin(){
+
+    global $conexion;
+    extract($_POST);
+                
+    $consulta="UPDATE sepulcro_panteon_jardin SET tipo_pago = '$tipo_pago', calle = '$calle', etapa = '$etapa', letra = '$letra', lote = '$lote', observacion = '$observacion'  WHERE id_sepulcro_panteon_jardin = $id_sepulcro_panteon_jardin";
+
+    mysqli_query($conexion, $consulta);
+    header("Location: ../view/PanteonJardin.php");
+}
+
+function eliminar_panteon_jardin(){
+
+    global $conexion;
+    extract($_POST);
+    $id = $_POST['id_sepulcro_panteon_jardin'];
+    $consulta = "DELETE FROM `sepulcro_panteon_jardin` WHERE `id_sepulcro_panteon_jardin` = $id_sepulcro_panteon_jardin";
+    mysqli_query($conexion, $consulta);
+    header("Location: ../view/PanteonJardin.php");
+}
+
+function editar_servicios(){
+
+    global $conexion;
+    extract($_POST);
+                
+    $consulta="UPDATE servicios SET boleta = '$boleta', mes = '$mes', fecha = '$fecha', panteon = '$panteon', datos_complementarios = '$datos_complementarios' WHERE id_servicios = $id_servicios";
+
+    mysqli_query($conexion, $consulta);
+    header("Location: ../view/Servicios.php");
+}
+
+function eliminar_servicios(){
+
+    global $conexion;
+    extract($_POST);
+    $id = $_POST['id_servicios'];
+    $consulta = "DELETE FROM `servicios` WHERE `id_servicios` = $id_servicios";
+    mysqli_query($conexion, $consulta);
+    header("Location: ../view/Servicios.php");
 }

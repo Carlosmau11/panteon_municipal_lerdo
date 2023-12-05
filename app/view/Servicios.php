@@ -190,39 +190,61 @@
                                             <th>Fecha</th>
                                             <th>Panteon</th>
                                             <th>Datos complementarios</th>
+                                            <th>Actualizar</th>
+                                            <th>Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
 
-                                        // Consulta SQL para obtener datos de la tabla de difuntos
                                         $sql = "SELECT * FROM servicios";
-                                        $resultado = $conexion->query($sql);
-
-                                        // Verificar si hay resultados
-                                        if ($resultado->num_rows > 0) {
-                                            // Iterar sobre los resultados y mostrar cada fila
-                                            while ($fila = $resultado->fetch_assoc()) {
-                                                echo "<tr>";
-                                                echo "<td>" . $fila["id_servicios"] . "</td>";
-                                                echo "<td>" . $fila["id_propietario"] . "</td>";
-                                                echo "<td>" . $fila["id_sepulcro_panteon_municipal"] . "</td>";
-                                                echo "<td>" . $fila["id_tipo_servicio"] . "</td>";
-                                                echo "<td>" . $fila["boleta"] . "</td>";
-                                                echo "<td>" . $fila["mes"] . "</td>";
-                                                echo "<td>" . $fila["fecha"] . "</td>";
-                                                echo "<td>" . $fila["fecha"] . "</td>";
-                                                echo "<td>" . $fila["datos_complementarios"] . "</td>";
-                                                echo "</tr>";
-                                            }
-                                        } else {
-                                            // Mensaje si no hay resultados
-                                            echo "<tr><td colspan='4'>No hay difuntos registrados.</td></tr>";
-                                        }
-
-                                        // Cerrar la conexión
-                                        $conexion->close();
+                                        $propietario = mysqli_query($conexion, $sql);
+                                        if($propietario -> num_rows > 0){
+                                        foreach($propietario as $key => $row ){
                                         ?>
+                                        <?php
+                                        ?>
+
+                                        <tr>
+                                            <td><?= $row["id_servicios"] ?></td>
+                                            <td><?php echo $row['id_propietario']; ?></td>
+                                            <td><?php echo $row['id_sepulcro_panteon_municipal']; ?></td>
+                                            <td><?php echo $row['id_tipo_servicio']; ?></td>
+                                            <td><?php echo $row['boleta']; ?></td>
+                                            <td><?php echo $row['mes']; ?></td>
+                                            <td><?php echo $row['fecha']; ?></td>
+                                            <td><?php echo $row['panteon']; ?></td>
+                                            <td><?php echo $row['datos_complementarios']; ?></td>
+                                            <td>
+                                                <button class="btn btn-info"
+                                                    style="text-decoration: none; color: white;">
+                                                    <a href="actualizar_servicios.php?id_servicios=<?php echo $row['id_servicios']?>"
+                                                        style="color: white;">Editar</a>
+                                                </button>
+
+                                                <a></a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger"
+                                                    style="text-decoration: none; color: white;">
+                                                    <a href="eliminar_servicios.php?id_servicios=<?php echo $row['id_servicios']?>"
+                                                        style="color: white;">Eliminar</a>
+                                                </button>
+
+                                                <a></a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                            }
+                                            }else{
+
+                                                ?>
+                                        <tr class="text-center">
+                                            <td colspan="4">No existe registros</td>
+                                        </tr>
+
+                                        <?php
+                                            }?>
                                     </tbody>
                                 </table>
 
