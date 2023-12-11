@@ -1,3 +1,10 @@
+create table usuarios
+(
+idUsuario int AUTO_INCREMENT primary key,
+usuario varchar(50) not null,
+contrasena varchar(50) not null
+);
+
 CREATE TABLE difuntos (
     id_difuntos INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
@@ -14,9 +21,9 @@ CREATE TABLE propietario (
     edad INT,
     curp VARCHAR(18),
     celular VARCHAR(15),
-    foto VARCHAR(255), 
+    foto longblob NOT NULL,
     correo VARCHAR(50),
-    comprobante_domicilio VARCHAR(255) 
+    comprobante_domicilio longblob NOT NULL 
 );
 
 
