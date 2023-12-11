@@ -254,7 +254,7 @@
                                 <!-- Divider -->
                                 <hr class="sidebar-divider d-none d-md-block">
 
-                                <a href="formulario Panteon Jardines.html"
+                                <a href="agregar_panteon_jardin.php"
                                     class="d-none d-sm-inline-block btn btn-lg btn-primary rounded-circle shadow-sm float-right">
                                     +</a>
 
