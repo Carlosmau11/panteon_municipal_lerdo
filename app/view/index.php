@@ -218,10 +218,11 @@
                                             <td><?php echo $row['correo']; ?></td>
                                             <td>
                                                 <a href="data:application/pdf;base64,<?php echo base64_encode($row['comprobante_domicilio']); ?>"
-                                                    download="comprobante.pdf">
+                                                    download="comprobante.pdf" target="_blank">
                                                     Descargar PDF
                                                 </a>
                                             </td>
+
 
                                             <td>
                                                 <button class="btn btn-info"

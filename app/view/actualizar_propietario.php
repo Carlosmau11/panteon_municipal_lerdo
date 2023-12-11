@@ -95,9 +95,8 @@ $propietario = mysqli_fetch_assoc($resultado);
                             <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="foto">Foto:</label>
                                 <input type="file" class="form-control" id="foto" name="foto"
-                                    value="<?php echo $propietario ['']; ?>" required>
+                                    value="<?php echo $propietario ['foto']; ?>" required>
                             </div>
-
 
                             <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="correo">Correo Electronico:</label>
@@ -108,8 +107,9 @@ $propietario = mysqli_fetch_assoc($resultado);
                             <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="lugar_nacimiento">Comprobante
                                     Domicilio:</label>
-                                <input type="file" class="form-control" id="comprobante_domicilio"
-                                    name="comprobante_domicilio" value="<?php echo $propietario ['']; ?>" required>
+                                <input type="text" class="form-control" id="comprobante_domicilio"
+                                    name="comprobante_domicilio"
+                                    value="<?php echo $propietario ['comprobante_domicilio']; ?>" required>
                             </div>
                         </div>
                     </div>

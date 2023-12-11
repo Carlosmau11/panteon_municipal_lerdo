@@ -63,7 +63,7 @@ function agregar_propietario(){
     $imagenFin =mysqli_escape_string($conexion,$binariosImagen);
 
     $imagenSubida2=fopen($_FILES['comprobante_domicilio']['tmp_name'], 'r');
-    $binariosImagen2=fread($imagenSubida2,$tamanoArchvio);
+    $binariosImagen2=fread($imagenSubida2,$tamanoArchvio2);
 
     $imagenFin2 =mysqli_escape_string($conexion,$binariosImagen2);
 
