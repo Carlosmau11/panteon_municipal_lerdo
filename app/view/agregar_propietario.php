@@ -98,11 +98,10 @@
 
             <div class="mb-3">
                 <input type="hidden" name="accion" value="agregar_propietario">
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="submit" class="btn btn-success">Agregar</button>
                 <button class="btn btn-danger" style="text-decoration: none; color: white;">
                     <a href="index.php" style="color: white;">Cancelar</a>
                 </button>
-
             </div>
             </form>
         </div>
