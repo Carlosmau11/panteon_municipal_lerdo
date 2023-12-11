@@ -81,8 +81,25 @@ function editar_propietario(){
 
     global $conexion;
     extract($_POST);
+
+    $tamanoArchvio=$_FILES['foto']['size'];
+    $tamanoArchvio2=$_FILES['comprobante_domicilio']['size'];
+
+    
+    //se realiza la lectura de la imagen
+            $imagenSubida=fopen($_FILES['foto']['tmp_name'], 'r');
+            $binariosImagen=fread($imagenSubida,$tamanoArchvio);
+    
+    //se realiza la consulta correspondiente para guardar los datos
+    
+    $imagenFin =mysqli_escape_string($conexion,$binariosImagen);
+
+    $imagenSubida2=fopen($_FILES['comprobante_domicilio']['tmp_name'], 'r');
+    $binariosImagen2=fread($imagenSubida2,$tamanoArchvio);
+
+    $imagenFin2 =mysqli_escape_string($conexion,$binariosImagen2);
                 
-    $consulta="UPDATE propietario SET nombre_completo = '$nombre_completo', sexo = '$sexo', fecha_nacimiento = '$fecha_nacimiento', edad = '$edad', curp ='$curp', celular = '$celular', foto = '$foto', correo = '$correo', comprobante_domicilio = '$comprobante_domicilio' WHERE id_propietario = $id_propietario";
+    $consulta="UPDATE propietario SET nombre_completo = '$nombre_completo', sexo = '$sexo', fecha_nacimiento = '$fecha_nacimiento', edad = '$edad', curp ='$curp', celular = '$celular', foto = '$imagenFin', correo = '$correo', comprobante_domicilio = '$imagenFin2' WHERE id_propietario = $id_propietario";
 
     mysqli_query($conexion, $consulta);
     header("Location: ../view/index.php");

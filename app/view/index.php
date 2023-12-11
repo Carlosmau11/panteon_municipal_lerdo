@@ -216,7 +216,13 @@
                                                     src="data:foto;base64,<?php echo base64_encode($row['foto']);  ?>">
                                             </td>
                                             <td><?php echo $row['correo']; ?></td>
-                                            <td><?php echo $row['comprobante_domicilio']; ?></td>
+                                            <td>
+                                                <a href="data:application/pdf;base64,<?php echo base64_encode($row['comprobante_domicilio']); ?>"
+                                                    download="comprobante.pdf">
+                                                    Descargar PDF
+                                                </a>
+                                            </td>
+
                                             <td>
                                                 <button class="btn btn-info"
                                                     style="text-decoration: none; color: white;">

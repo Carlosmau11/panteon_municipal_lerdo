@@ -90,7 +90,7 @@
                                 <label style="color: rgb(231, 223, 223);" for="comprobante_domicilio">Comprobante de
                                     Domicilio:</label>
                                 <input type="file" class="form-control-file" name="comprobante_domicilio"
-                                    id="comprobante_domicilio" required>
+                                    id="comprobante_domicilio" accept=".pdf" required>
                             </div>
                         </div>
                     </div>
