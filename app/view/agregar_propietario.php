@@ -78,7 +78,7 @@
 
                             <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="foto">Foto:</label>
-                                <input type="text" class="form-control" id="foto" name="foto" required>
+                                <input type="file" class="form-control-file" name="foto" id="foto" required>
                             </div>
 
                             <div class="form-group">
@@ -87,10 +87,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="lugar_nacimiento">Lugar de
-                                    nacimiento:</label>
-                                <input type="text" class="form-control" id="comprobante_domicilio"
-                                    name="comprobante_domicilio" required>
+                                <label style="color: rgb(231, 223, 223);" for="comprobante_domicilio">Comprobante de
+                                    Domicilio:</label>
+                                <input type="file" class="form-control-file" name="comprobante_domicilio"
+                                    id="comprobante_domicilio" required>
                             </div>
                         </div>
                     </div>

@@ -212,7 +212,9 @@
                                             <td><?php echo $row['edad']; ?></td>
                                             <td><?php echo $row['curp']; ?></td>
                                             <td><?php echo $row['celular']; ?></td>
-                                            <td><?php echo $row['foto']; ?></td>
+                                            <td><img width="100"
+                                                    src="data:foto;base64,<?php echo base64_encode($row['foto']);  ?>">
+                                            </td>
                                             <td><?php echo $row['correo']; ?></td>
                                             <td><?php echo $row['comprobante_domicilio']; ?></td>
                                             <td>

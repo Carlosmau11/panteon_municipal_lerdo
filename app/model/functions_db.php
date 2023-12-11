@@ -50,9 +50,26 @@ function agregar_propietario(){
     global $conexion;
     extract($_POST);
 
+    $tamanoArchvio=$_FILES['foto']['size'];
+    $tamanoArchvio2=$_FILES['comprobante_domicilio']['size'];
+
+    
+    //se realiza la lectura de la imagen
+            $imagenSubida=fopen($_FILES['foto']['tmp_name'], 'r');
+            $binariosImagen=fread($imagenSubida,$tamanoArchvio);
+    
+    //se realiza la consulta correspondiente para guardar los datos
+    
+    $imagenFin =mysqli_escape_string($conexion,$binariosImagen);
+
+    $imagenSubida2=fopen($_FILES['comprobante_domicilio']['tmp_name'], 'r');
+    $binariosImagen2=fread($imagenSubida2,$tamanoArchvio);
+
+    $imagenFin2 =mysqli_escape_string($conexion,$binariosImagen2);
+
 
     $consulta="INSERT INTO propietario (nombre_completo,sexo,fecha_nacimiento,edad,curp,celular,foto,correo,comprobante_domicilio)
-    VALUES ('$nombre_completo','$sexo', '$fecha_nacimiento', '$edad', '$curp', '$celular', '$foto', '$correo', '$comprobante_domicilio');" ;
+    VALUES ('$nombre_completo','$sexo', '$fecha_nacimiento', '$edad', '$curp', '$celular', '$imagenFin', '$correo', '$imagenFin2');" ;
 
     mysqli_query($conexion, $consulta);
     
