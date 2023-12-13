@@ -21,6 +21,8 @@
 
 
     <link href="../../public/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../public/css/grid.css" rel="stylesheet">
+
 
 
     <link href="../../public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -171,15 +173,74 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Mostrando mapeo</h6>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <!---------------------------AQUI VA CODIGO --------------------->
 
-                                <a href="agregar_propietario.php"
-                                    class="d-none d-sm-inline-block btn btn-lg btn-primary rounded-circle shadow-sm float-right">
-                                    +</a>
+                        <main>
+                            <div class="container">
+                                <div class="row mb-3 text-center mt-4 py-2">
+                                    <div class="col-xl-12 themed-grid-col">Calle Tulipanes</div>
+                                </div>
+
+                                <div class="row mb-3 text-center">
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                </div>
+
+                                <div class="row mb-3 text-center">
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                </div>
+
+                                <div class="row mb-3 text-center">
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                </div>
+
+                                <div class="row mb-3 text-center mt-4 py-2">
+                                    <div class="col-xl-12 themed-grid-col">Calle Gardenia</div>
+                                </div>
+
+
+                                <div class="row mb-3 text-center">
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                </div>
+
+                                <div class="row mb-3 text-center">
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                </div>
+
+                                <div class="row mb-3 text-center">
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                </div>
+
                             </div>
-                        </div>
+                        </main>
                     </div>
 
                 </div>
