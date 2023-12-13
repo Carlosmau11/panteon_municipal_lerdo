@@ -1,4 +1,36 @@
 <?php require '../../app/model/db.php' ?>
+<?php
+    // Establecer la conexión a la base de datos
+    $con = mysqli_connect("localhost", "root", "1234qwerty", "syscopa");
+
+    // Verificar la conexión
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        exit();
+    }
+
+    // Realizar la consulta SQL
+    $query = "SELECT calle, id_propietario FROM sepulcro_panteon_jardin";
+    $result = mysqli_query($con, $query);
+
+    $mapeo = array();
+
+    // Procesar los resultados de la consulta
+    while ($row = mysqli_fetch_assoc($result)) {
+        $calle = $row['calle'];
+        $propietario = $row['id_propietario'];
+
+        // Agregar la calle y el propietario al array (si no existen)
+        if (!isset($mapeo[$calle])) {
+            $mapeo[$calle] = array();
+        }
+
+        // Agregar el propietario solo si no existe en la calle
+        if (!in_array($propietario, $mapeo[$calle])) {
+            $mapeo[$calle][] = $propietario;
+        }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -176,69 +208,18 @@
 
                         <main>
                             <div class="container">
+
+                                <?php foreach ($mapeo as $calle => $propietarios): ?>
                                 <div class="row mb-3 text-center mt-4 py-2">
-                                    <div class="col-xl-12 themed-grid-col">Calle Tulipanes</div>
+                                    <div class="col-xl-12 themed-grid-col"><?php echo $calle; ?></div>
                                 </div>
 
                                 <div class="row mb-3 text-center">
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
+                                    <?php foreach ($propietarios as $propietario): ?>
+                                    <div class="col-2 mx-3 themed-grid-col mt-4"><?php echo $propietario; ?></div>
+                                    <?php endforeach; ?>
                                 </div>
-
-                                <div class="row mb-3 text-center">
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                </div>
-
-                                <div class="row mb-3 text-center">
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                </div>
-
-                                <div class="row mb-3 text-center mt-4 py-2">
-                                    <div class="col-xl-12 themed-grid-col">Calle Gardenia</div>
-                                </div>
-
-
-                                <div class="row mb-3 text-center">
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                </div>
-
-                                <div class="row mb-3 text-center">
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                </div>
-
-                                <div class="row mb-3 text-center">
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                    <div class="col-2 themed-grid-col">.col-4</div>
-                                </div>
-
+                                <?php endforeach; ?>
                             </div>
                         </main>
                     </div>
