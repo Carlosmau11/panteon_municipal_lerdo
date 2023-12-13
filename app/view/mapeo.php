@@ -169,93 +169,11 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Datos Guardados | Propietarios</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Mostrando mapeo</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Sexo</th>
-                                            <th>Fecha Nacimiento</th>
-                                            <th>Edad</th>
-                                            <th>Curp</th>
-                                            <th>Celular</th>
-                                            <th>Foto</th>
-                                            <th>Correo</th>
-                                            <th>Comprobante Domicilio</th>
-                                            <th>Actualizar</th>
-                                            <th>Eliminar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-
-                                        $sql = "SELECT * FROM propietario";
-                                        $propietario = mysqli_query($conexion, $sql);
-                                        if($propietario -> num_rows > 0){
-                                        foreach($propietario as $key => $row ){
-                                        ?>
-                                        <!--funcion y estilos para celdas en error-->
-                                        <?php
-                                        ?>
-
-                                        <tr>
-                                            <td><?= $row["id_propietario"] ?></td>
-                                            <td><?php echo $row['nombre_completo']; ?></td>
-                                            <td><?php echo $row['sexo']; ?></td>
-                                            <td><?php echo $row['fecha_nacimiento']; ?></td>
-                                            <td><?php echo $row['edad']; ?></td>
-                                            <td><?php echo $row['curp']; ?></td>
-                                            <td><?php echo $row['celular']; ?></td>
-                                            <td><img width="100"
-                                                    src="data:foto;base64,<?php echo base64_encode($row['foto']);  ?>">
-                                            </td>
-                                            <td><?php echo $row['correo']; ?></td>
-                                            <td>
-                                                <a href="data:application/pdf;base64,<?php echo base64_encode($row['comprobante_domicilio']); ?>"
-                                                    download="comprobante.pdf" target="_blank">
-                                                    Descargar PDF
-                                                </a>
-                                            </td>
-
-
-                                            <td>
-                                                <button class="btn btn-info"
-                                                    style="text-decoration: none; color: white;">
-                                                    <a href="actualizar_propietario.php?id_propietario=<?php echo $row['id_propietario']?>"
-                                                        style="color: white;">Editar</a>
-                                                </button>
-
-                                                <a></a>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-danger"
-                                                    style="text-decoration: none; color: white;">
-                                                    <a href="eliminar_propietario.php?id_propietario=<?php echo $row['id_propietario']?>"
-                                                        style="color: white;">Eliminar</a>
-                                                </button>
-
-                                                <a></a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                          }
-                                          }else{
-
-                                              ?>
-                                        <tr class="text-center">
-                                            <td colspan="4">No existe registros</td>
-                                        </tr>
-
-                                        <?php
-                                          }?>
-                                    </tbody>
-                                </table>
-
-                                <hr class="sidebar-divider d-none d-md-block">
+                                <!---------------------------AQUI VA CODIGO --------------------->
 
                                 <a href="agregar_propietario.php"
                                     class="d-none d-sm-inline-block btn btn-lg btn-primary rounded-circle shadow-sm float-right">
