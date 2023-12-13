@@ -221,7 +221,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <div class="container">
                                 <?php foreach ($mapeo as $calle => $propietarios): ?>
                                 <div class="row mb-3 text-center mt-4 py-2">
-                                    <div class="col-xl-12 themed-grid-col"><?php echo $calle; ?></div>
+                                    <div class="col-xl-12 themed-grid-col">Calle: <?php echo $calle; ?></div>
                                 </div>
 
                                 <div class="row mb-3 text-center">

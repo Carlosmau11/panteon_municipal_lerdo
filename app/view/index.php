@@ -146,8 +146,7 @@
                                 aria-labelledby="userDropdown">
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../../app/model/cerrar_sesion.php" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Cerrar Sesion
                                 </a>
@@ -297,7 +296,7 @@
                 <div class="modal-body">¿Esta Seguro que desea Cerrar Sesion?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.html">Continuar</a>
+                    <a class="btn btn-primary" href="../../app/model/cerrar_sesion.php">Continuar</a>
                 </div>
             </div>
         </div>
