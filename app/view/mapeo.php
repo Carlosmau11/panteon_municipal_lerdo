@@ -9,42 +9,44 @@
         exit();
     }
 
-    // Realizar la consulta SQL
-    $query = "SELECT calle, id_propietario FROM sepulcro_panteon_jardin";
-    $result = mysqli_query($con, $query);
+    $query = "SELECT sepulcro_panteon_jardin.calle, sepulcro_panteon_jardin.id_difunto, sepulcro_panteon_jardin.etapa, sepulcro_panteon_jardin.tipo_pago, sepulcro_panteon_jardin.letra,  sepulcro_panteon_jardin.observacion, sepulcro_panteon_jardin.lote, propietario.id_propietario, propietario.nombre_completo, propietario.sexo 
+          FROM sepulcro_panteon_jardin 
+          INNER JOIN propietario ON sepulcro_panteon_jardin.id_propietario = propietario.id_propietario";
+    
+$result = mysqli_query($con, $query);
 
-    $mapeo = array();
+$mapeo = array();
 
-    // Procesar los resultados de la consulta
-    while ($row = mysqli_fetch_assoc($result)) {
-        $calle = $row['calle'];
-        $propietario = $row['id_propietario'];
+// Procesar los resultados de la consulta
+while ($row = mysqli_fetch_assoc($result)) {
+    $propietarioId = $row['id_propietario'];
+    $id_difunto = $row['id_difunto'];
+    $nombreCompleto = $row['nombre_completo'];
+    $tipo_pago = $row['tipo_pago'];
+    $etapa = $row['etapa'];
+    $calle = $row['calle'];
+    $letra = $row['letra'];
+    $lote = $row['lote'];
+    $observacion = $row['observacion'];
 
-        // Agregar la calle y el propietario al array (si no existen)
-        if (!isset($mapeo[$calle])) {
-            $mapeo[$calle] = array();
-        }
-
-        // Agregar el propietario solo si no existe en la calle
-        if (!in_array($propietario, $mapeo[$calle])) {
-            $mapeo[$calle][] = $propietario;
-        }
+    // Agregar la calle y el propietario al array (si no existen)
+    if (!isset($mapeo[$calle])) {
+        $mapeo[$calle] = array();
     }
 
-    $propietarioNombres = array();
-
-    // Obtener nombres de propietarios en función de los IDs
-    foreach ($mapeo as $calle => $propietarios) {
-        foreach ($propietarios as $propietarioId) {
-            // Consultar la base de datos para obtener el nombre del propietario
-            $queryNombre = "SELECT nombre_completo FROM propietario WHERE id_propietario = $propietarioId";
-            $resultNombre = mysqli_query($con, $queryNombre);
-            $rowNombre = mysqli_fetch_assoc($resultNombre);
-
-            // Agregar el nombre al array de propietarioNombres
-            $propietarioNombres[$propietarioId] = $rowNombre['nombre_completo'];
-        }
-    }
+    // Agregar la información del propietario a la calle
+    $mapeo[$calle][] = array(
+        'id' => $propietarioId,
+        'id_difunto' => $id_difunto,
+        'nombre' => $nombreCompleto,
+        'calle' => $calle,
+        'etapa' => $etapa,
+        'tipo_pago' => $tipo_pago,
+        'letra' => $letra,
+        'lote' => $lote,
+        'observacion' => $observacion
+    );
+}
 ?>
 
 <!DOCTYPE html>
@@ -208,18 +210,13 @@
 
 
                 <div class="container-fluid">
-
-
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-2 text-gray-800">Visualizando Mapeo General</h1>
                     </div>
-
-
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Mostrando mapeo</h6>
                         </div>
-
                         <main>
                             <div class="container">
                                 <?php foreach ($mapeo as $calle => $propietarios): ?>
@@ -228,11 +225,53 @@
                                 </div>
 
                                 <div class="row mb-3 text-center">
-                                    <?php foreach ($propietarios as $propietarioId): ?>
+                                    <?php foreach ($propietarios as $propietario): ?>
                                     <div class="col-2 mx-3 themed-grid-col">
-                                        <?php
-                                            echo $propietarioNombres[$propietarioId];
-                                        ?>
+                                        <a href="#" data-toggle="modal"
+                                            data-target="#modalPropietario<?php echo $propietario['id']; ?>">
+                                            <?php echo $propietario['nombre']; ?>
+                                        </a>
+                                    </div>
+
+                                    <!-- Modal PROPIETARIO -->
+                                    <div class="modal fade" id="modalPropietario<?php echo $propietario['id']; ?>"
+                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title fw-bold" id="exampleModalLongTitle">Datos del
+                                                        Propietario</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h5>Id Propietario: <?php echo $propietario['id']; ?></h5>
+                                                    <br>
+                                                    <h5>Id Difunto: <?php echo $propietario['id_difunto']; ?></h5>
+                                                    <br>
+                                                    <h5>Nombre Propietario: <?php echo $propietario['nombre']; ?> </h5>
+                                                    <br>
+                                                    <h5>Tipo Pago: <?php echo $propietario['tipo_pago']; ?></h5>
+                                                    <br>
+                                                    <h5>Calle: <?php echo $propietario['calle']; ?></h5>
+                                                    <br>
+                                                    <h5>Etapa: <?php echo $propietario['etapa']; ?></h5>
+                                                    <br>
+                                                    <h5>Letra: <?php echo $propietario['letra']; ?></h5>
+                                                    <br>
+                                                    <h5>Lote: <?php echo $propietario['lote']; ?></h5>
+                                                    <br>
+                                                    <h5>Observacion: <?php echo $propietario['observacion']; ?></h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <?php endforeach; ?>
                                 </div>
@@ -240,11 +279,10 @@
                             </div>
                         </main>
                     </div>
-
                 </div>
-
-
             </div>
+
+
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -295,6 +333,7 @@
 
 
     <script src="../../public/js/demo/datatables-demo.js"></script>
+
 
 </body>
 
