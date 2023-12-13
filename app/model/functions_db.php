@@ -30,6 +30,10 @@ if(isset($_POST['accion'])){
             eliminar_panteon_municipal();
         break;
 
+        case 'agregar_panteon_jardin':
+            agregar_panteon_jardin();
+        break;
+        
         case 'editar_panteon_jardin':
             editar_panteon_jardin();
         break;
@@ -154,6 +158,20 @@ function eliminar_panteon_municipal(){
     $consulta = "DELETE FROM `propietario` WHERE `id_sepulcro_panteon_municipal` = $id_sepulcro_panteon_municipal";
     mysqli_query($conexion, $consulta);
     header("Location: ../view/difuntos.php");
+}
+
+function agregar_panteon_jardin(){
+
+    global $conexion;
+    extract($_POST);
+
+
+    $consulta="INSERT INTO sepulcro_panteon_jardin (id_propietario,id_difunto,tipo_pago, calle, etapa, letra, lote, observacion)
+    VALUES ('$id_propietario', '$id_difunto', '$tipo_pago','$calle', '$etapa', '$letra', '$lote', '$observacion');" ;
+
+    mysqli_query($conexion, $consulta);
+    
+    header("Location: ../view/PanteonJardin.php");
 }
 
 function editar_panteon_jardin(){

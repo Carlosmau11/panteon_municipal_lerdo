@@ -93,9 +93,19 @@ $propietario = mysqli_fetch_assoc($resultado);
                         <div class="col-md-4">
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="foto">Foto:</label>
-                                <input type="file" class="form-control" id="foto" name="foto"
-                                    value="<?php echo $propietario ['foto']; ?>" required>
+                                <label style="color: rgb(231, 223, 223);" for="foto">Foto Actual:</label>
+                                <?php
+                                
+                                $imagenBase64 = base64_encode($propietario['foto']);
+                                $imagenSrc = 'data:image/jpeg;base64,' . $imagenBase64;
+                                ?>
+                                <img src="<?php echo $imagenSrc; ?>" alt="Foto Actual"
+                                    style="max-width: 300px; max-height: 300px;">
+                            </div>
+
+                            <div class="form-group">
+                                <label style="color: rgb(231, 223, 223);" for="foto">Nueva Foto:</label>
+                                <input type="file" class="form-control" id="foto" name="foto">
                             </div>
 
                             <div class="form-group">
@@ -105,11 +115,10 @@ $propietario = mysqli_fetch_assoc($resultado);
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="lugar_nacimiento">Comprobante
+                                <label style="color: rgb(231, 223, 223);" for="comprobante_domicilio">Comprobante
                                     Domicilio:</label>
-                                <input type="text" class="form-control" id="comprobante_domicilio"
-                                    name="comprobante_domicilio"
-                                    value="<?php echo $propietario ['comprobante_domicilio']; ?>" required>
+                                <input type="file" class="form-control" id="comprobante_domicilio"
+                                    name="comprobante_domicilio">
                             </div>
                         </div>
                     </div>

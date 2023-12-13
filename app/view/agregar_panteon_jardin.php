@@ -36,23 +36,24 @@
                         <div class="col-md-4">
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="id_padron">Id Padrón:</label>
-                                <input type="text" class="form-control" id="id_padron" name="id_padron" required>
+                                <label style="color: rgb(231, 223, 223);" for="id_propietario">Id Propietario:</label>
+                                <input type="text" class="form-control" id="id_propietario" name="id_propietario"
+                                    required>
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="rev">Propietario:</label>
-                                <input type="text" class="form-control" id="rev" name="rev" required>
+                                <label style="color: rgb(231, 223, 223);" for="id_difunto">Id Difunto:</label>
+                                <input type="text" class="form-control" id="id_difunto" name="id_difunto" required>
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="adq">ADQ:</label>
-                                <input type="text" class="form-control" id="adq" name="adq" required>
+                                <label style="color: rgb(231, 223, 223);" for="tipo_pago">Tipo Pago:</label>
+                                <input type="text" class="form-control" id="tipo_pago" name="tipo_pago" required>
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="rev">REV:</label>
-                                <input type="text" class="form-control" id="rev" name="rev" required>
+                                <label style="color: rgb(231, 223, 223);" for="calle">Calle:</label>
+                                <input type="text" class="form-control" id="calle" name="calle" required>
                             </div>
                         </div>
 
@@ -60,13 +61,13 @@
                         <div class="col-md-4">
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="condonado">Condonado:</label>
-                                <input type="text" class="form-control" id="condonado" name="condonado" required>
+                                <label style="color: rgb(231, 223, 223);" for="etapa">Etapa:</label>
+                                <input type="text" class="form-control" id="etapa" name="etapa" required>
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="calle">Calle:</label>
-                                <input type="text" class="form-control" id="calle" name="calle" required>
+                                <label style="color: rgb(231, 223, 223);" for="letra">Letra:</label>
+                                <input type="text" class="form-control" id="letra" name="letra" required>
                             </div>
 
                             <div class="form-group">
@@ -89,16 +90,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="fecha">Fecha:</label>
-                                <input type="date" class="form-control" id="fecha" name="fecha" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="finado">Finado:</label>
-                                <input type="text" class="form-control" id="finado" name="finado" required>
-                            </div>
-
-                            <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="observacion">Observación:</label>
                                 <textarea class="form-control" id="observacion" name="observacion" required></textarea>
                             </div>
@@ -106,10 +97,10 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-danger">Agregar</button>
-                        <button type="submit" class="btn btn-danger">Modificar</button>
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                        <a href="PanteonJardin.html" class="btn btn-danger"> Regresar</a>
+                        <input type="hidden" name="accion" value="agregar_panteon_jardin">
+                        <button type="submit" class="btn btn-success">Agregar</button>
+                        <button class="btn btn-danger" style="text-decoration: none; color: white;">
+                            <a href="PanteonJardin.php" style="color: white;">Cancelar</a>
                     </div>
                 </form>
             </div>
