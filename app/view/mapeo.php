@@ -192,7 +192,6 @@
                 </nav>
 
 
-
                 <div class="container-fluid">
 
 
@@ -216,7 +215,8 @@
 
                                 <div class="row mb-3 text-center">
                                     <?php foreach ($propietarios as $propietario): ?>
-                                    <div class="col-2 mx-3 themed-grid-col mt-4"><?php echo $propietario; ?></div>
+                                    <div class="col-2 mx-3 themed-grid-col mt-4"><a
+                                            href="Difuntos.php"><?php echo $propietario; ?></a></div>
                                     <?php endforeach; ?>
                                 </div>
                                 <?php endforeach; ?>
