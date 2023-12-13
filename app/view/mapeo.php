@@ -30,6 +30,21 @@
             $mapeo[$calle][] = $propietario;
         }
     }
+
+    $propietarioNombres = array();
+
+    // Obtener nombres de propietarios en función de los IDs
+    foreach ($mapeo as $calle => $propietarios) {
+        foreach ($propietarios as $propietarioId) {
+            // Consultar la base de datos para obtener el nombre del propietario
+            $queryNombre = "SELECT nombre_completo FROM propietario WHERE id_propietario = $propietarioId";
+            $resultNombre = mysqli_query($con, $queryNombre);
+            $rowNombre = mysqli_fetch_assoc($resultNombre);
+
+            // Agregar el nombre al array de propietarioNombres
+            $propietarioNombres[$propietarioId] = $rowNombre['nombre_completo'];
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -207,16 +222,18 @@
 
                         <main>
                             <div class="container">
-
                                 <?php foreach ($mapeo as $calle => $propietarios): ?>
                                 <div class="row mb-3 text-center mt-4 py-2">
                                     <div class="col-xl-12 themed-grid-col"><?php echo $calle; ?></div>
                                 </div>
 
                                 <div class="row mb-3 text-center">
-                                    <?php foreach ($propietarios as $propietario): ?>
-                                    <div class="col-2 mx-3 themed-grid-col mt-4"><a
-                                            href="Difuntos.php"><?php echo $propietario; ?></a></div>
+                                    <?php foreach ($propietarios as $propietarioId): ?>
+                                    <div class="col-2 mx-3 themed-grid-col">
+                                        <?php
+                                            echo $propietarioNombres[$propietarioId];
+                                        ?>
+                                    </div>
                                     <?php endforeach; ?>
                                 </div>
                                 <?php endforeach; ?>
