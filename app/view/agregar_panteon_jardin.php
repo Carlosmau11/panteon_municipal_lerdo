@@ -30,7 +30,7 @@
                 <h3 class="text-center">Panteon Jardines</h3>
             </div>
             <div class="card-body">
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="../../app/model/functions_db.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <!-- Columna 1 -->
                         <div class="col-md-4">
@@ -71,23 +71,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="etapa">Etapa:</label>
-                                <input type="text" class="form-control" id="etapa" name="etapa" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="letra">Letra:</label>
-                                <input type="text" class="form-control" id="letra" name="letra" required>
+                                <label style="color: rgb(231, 223, 223);" for="lote">Lote:</label>
+                                <input type="text" class="form-control" id="lote" name="lote" required>
                             </div>
                         </div>
 
                         <!-- Columna 3 -->
                         <div class="col-md-4">
-
-                            <div class="form-group">
-                                <label style="color: rgb(231, 223, 223);" for="lote">Lote:</label>
-                                <input type="text" class="form-control" id="lote" name="lote" required>
-                            </div>
 
                             <div class="form-group">
                                 <label style="color: rgb(231, 223, 223);" for="observacion">Observación:</label>
