@@ -169,8 +169,8 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-2 text-gray-800">Datos del Panteon Jardin de los Recuerdos</h1>
-                        <a href="blank.html" class="d-none d-sm-inline-block btn btn-primary shadow-sm"
-                            style="background-image: url('img/mapa.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center">
+                        <a href="mapeo.php" class="d-none d-sm-inline-block btn btn-primary shadow-sm"
+                            style="background-image: url('../../public/img/mapa.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center">
                             ' ' </a>
                     </div>
 

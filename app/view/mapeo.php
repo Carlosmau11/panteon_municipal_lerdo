@@ -55,6 +55,14 @@
                 Tablas
             </div>
 
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="mapeo.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Ver mapeo</span></a>
+            </li>
+
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
@@ -163,7 +171,7 @@
 
 
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-2 text-gray-800">Datos Propietarios</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Visualizando Mapeo General</h1>
                     </div>
 
 
