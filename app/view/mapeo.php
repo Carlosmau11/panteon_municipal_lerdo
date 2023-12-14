@@ -239,8 +239,9 @@ while ($row = mysqli_fetch_assoc($result)) {
                                         aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title fw-bold" id="exampleModalLongTitle">Datos del
+                                                <div class="modal-header bg-dark">
+                                                    <h5 class="modal-title fw-bold  text-white"
+                                                        id="exampleModalLongTitle">Datos del
                                                         Propietario</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
@@ -266,7 +267,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                                     <br>
                                                     <h5>Observacion: <?php echo $propietario['observacion']; ?></h5>
                                                 </div>
-                                                <div class="modal-footer">
+                                                <div class="modal-footer bg-dark">
                                                     <button type="button" class="btn btn-danger"
                                                         data-dismiss="modal">Cerrar</button>
                                                 </div>
