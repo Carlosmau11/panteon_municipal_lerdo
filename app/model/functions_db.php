@@ -6,6 +6,18 @@ require_once ("db.php");
 if(isset($_POST['accion'])){ 
     switch($_POST['accion']){
 
+        case 'agregar_difunto':
+            agregar_difunto();
+        break;
+
+        case 'eliminar_difunto':
+            eliminar_difunto();
+        break;
+
+        case 'editar_difunto':
+            editar_difunto();
+        break;
+
         case 'editar_propietario':
             editar_propietario();
         break;
@@ -52,6 +64,42 @@ if(isset($_POST['accion'])){
     }
 
 }
+
+function agregar_difunto(){
+
+    global $conexion;
+    extract($_POST);
+
+
+    $consulta="INSERT INTO difuntos (nombre, sexo, fecha)
+    VALUES ('$nombre', '$sexo', '$fecha');" ;
+
+    mysqli_query($conexion, $consulta);
+    
+    header("Location: ../view/Difunt.php");
+}
+
+function editar_difunto(){
+
+    global $conexion;
+    extract($_POST);
+                
+    $consulta="UPDATE difuntos SET nombre = '$nombre', sexo = '$sexo', fecha = '$fecha' WHERE id_difuntos = $id_difuntos";
+
+    mysqli_query($conexion, $consulta);
+    header("Location: ../view/Difunt.php");
+}
+
+function eliminar_difunto(){
+
+    global $conexion;
+    extract($_POST);
+    $id = $_POST['id_difuntos'];
+    $consulta = "DELETE FROM `difuntos` WHERE `id_difuntos` = $id_difuntos";
+    mysqli_query($conexion, $consulta);
+    header("Location: ../view/Difunt.php");
+}
+
 
 function agregar_propietario(){
 

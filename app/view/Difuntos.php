@@ -290,8 +290,8 @@
                 </div>
                 <div class="modal-body">¿Esta Seguro que desea Cerrar Sesion?</div>
                 <div class="modal-footer">
+                    <a class="btn btn-primary" href="../../app/model/cerrar_sesion.php">Continuar</a>
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.html">Continuar</a>
                 </div>
             </div>
         </div>
